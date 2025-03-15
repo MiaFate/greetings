@@ -14,12 +14,17 @@ go get -u github.com/miafate/greetings
 package main
 
 import (
-    "fmt"
-    "github.com/miafate/greetings"
+	"fmt"
+
+	"github.com/miafate/greetings"
 )
 
 func main() {
-    message := greetings.Hello("Gopher")
-    fmt.Println(message)
+	message, err := greetings.Hello("Gopher")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(message)
 }
 ```
